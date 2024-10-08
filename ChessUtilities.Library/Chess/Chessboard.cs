@@ -24,8 +24,8 @@ public class Chessboard
 
     public void Move(Move move)
     {
-        _board[move.Target.rank, move.Target.file] = move.Piece.ToChar();
-        _board[move.Source.rank, move.Source.file] = '\0';
+        _board[move.Target.Rank, move.Target.File] = move.Piece.ToChar();
+        _board[move.Source.Rank, move.Source.File] = '\0';
     }
     
     public override string ToString()

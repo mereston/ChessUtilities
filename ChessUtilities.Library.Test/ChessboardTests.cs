@@ -1,5 +1,4 @@
 using System.Text.Json;
-using Antlr4.Runtime;
 using ChessUtilities.Library.Chess;
 
 namespace ChessUtilities.Library.Test;
@@ -89,7 +88,7 @@ public class ChessboardTests
     }
 
     [Theory]
-    [InlineData("""{"Source": {"rank": 1, "file":3}, "Target": {"rank": 3, "file":3}, "Piece": { "Color": 0, "PieceType": 5} }""", "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR")]
+    [InlineData("""{"Source": {"Rank": 1, "File":3}, "Target": {"Rank": 3, "File":3}, "Piece": { "Color": 0, "PieceType": 5} }""", "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR")]
     public void FirstMoveReportsCorrectly(string moveJson, string expectedBoardState)
     {
         Chessboard board = new Chessboard();
