@@ -92,7 +92,7 @@ public class ChessboardTests
     public void FirstMoveReportsCorrectly(string moveJson, string expectedBoardState)
     {
         Chessboard board = new Chessboard();
-        Move move = JsonSerializer.Deserialize<Move>(moveJson) ?? new(new(0,0),new(0,0),new(0,0));
+        Move move = JsonSerializer.Deserialize<Move>(moveJson) ?? new(new(0,0),new(0,0),new(0,0), Capture.None);
         board.Move(move);
 
         Assert.Equal(expectedBoardState, board.ToString());

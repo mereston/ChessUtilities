@@ -1,3 +1,3 @@
 namespace ChessUtilities.Library.Chess;
 
-public record Move(Position Source, Position Target, ChessPiece Piece, bool Captures=false);
+public record Move(Position Source, Position Target, ChessPiece Piece, Capture Capture);

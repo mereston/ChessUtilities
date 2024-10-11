@@ -20,10 +20,10 @@ public class UtilityTests
     public void WeCanInstantiateANestedRecordFromJson()
     {
         // Given
-        string json = $$"""{"Source": {"Rank": 1, "File":1}, "Target": {"Rank": 1, "File":1}, "Piece": { "Color": 0, "PieceType": 0 } }""";
+        string json = """{"Source": {"Rank": 1, "File":1}, "Target": {"Rank": 1, "File":1}, "Piece": { "Color": 0, "PieceType": 0 }, "Capture": { "Capture": false, "EnPassant": false} }""";
         // When
-        Move move = JsonSerializer.Deserialize<Move>(json) ?? new(new(0,0),new(0,0), new(Color.Black, PieceType.Bishop));
+        Move move = JsonSerializer.Deserialize<Move>(json) ?? new(new(0,0),new(0,0), new(Color.Black, PieceType.Bishop), Capture.None);
         // Then
-        Assert.Equal(new(new(1,1),new(1,1),new(Color.White,PieceType.King)), move);
+        Assert.Equal(new(new(1,1),new(1,1),new(Color.White,PieceType.King), Capture.None), move);
     }
 }
