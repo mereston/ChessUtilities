@@ -25,8 +25,9 @@ public class BishopHalfMoveTests
     }
 
     [Fact]
-    public void Recognize_Generates14Candidates()
-    {
-        
+    public void AllCandidatesAreOnDiagonalsFromTarget()
+    {        
+        Assert.Empty(_adapter.Recognize(new(Position.None, new(1,3), new(Color.None, PieceType.Bishop), Capture.None))
+            .Where(m=> Math.Abs(m.Source.File - m.Target.File) != Math.Abs(m.Source.Rank - m.Target.Rank)));
     }
 }
